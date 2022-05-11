@@ -3,7 +3,9 @@
 
 // BACKGROUND IMAGE-----------------------------------using Unsplash API 
 
-fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=geology")
+// Also need an API key for this,,,, signed up for an application and now it needs to be approved 
+fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=rocks")
+// fetch("https://api.unsplash.com/photos/random?orientation=landscape&query=geology")
     .then(res => res.json())
     .then(data => {
         document.body.style.backgroundImage = `url(${data.urls.regular})`
@@ -20,7 +22,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
 // CRYPTO COINS--------------------------------------using Coingecko API
 
-fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+fetch("https://api.coingecko.com/api/v3/coins/ethereum")
     .then(res => {
         if (!res.ok) {
             throw Error("Something went wrong")
@@ -51,9 +53,18 @@ setInterval(getCurrentTime, 1000)
 
 
 //  LOCATION -----------------------need to get this so then we can get accurate local weather data
+
 navigator.geolocation.getCurrentPosition(position => {
-    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
-        .then(res => {
+
+    // When I signed up, they said it will take time to activate
+    // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}
+    // &appid={ad4ec7325e0afa26e8214b1872708ed8}&units=imperial`)
+
+
+    // This SCRIMBA one works, but I don't want to use it through Scrimba :)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`) 
+   
+    .then(res => {
             if (!res.ok) {
                 throw Error("Weather data not available")
             }
