@@ -50,6 +50,11 @@ div#crypto-top > span {
     margin-left: 10px;
 }
 
+#quote{
+    font-size: 20px;
+    font-weight: 700;
+}
+
 div#weather {
     display: flex;
     align-items: center;
